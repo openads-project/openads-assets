@@ -5,10 +5,10 @@
   <a href="https://openads-project.github.io"><img src="https://img.shields.io/badge/OpenADS-45ccc6"/></a>
   <a href="https://github.com/openads-project/openads-assets/releases/latest"><img src="https://img.shields.io/github/v/release/openads-project/openads-assets"/></a>
   <a href="https://github.com/openads-project/openads-assets/blob/main/LICENSE"><img src="https://img.shields.io/github/license/openads-project/openads-assets"/></a>
-  <a href="https://github.com/openads-project/openads-assets/actions/workflows/data-image.yml"><img src="https://github.com/openads-project/openads-assets/actions/workflows/data-image.yml/badge.svg"/></a>
+  <a href="https://github.com/openads-project/openads-assets/actions/workflows/docker-build.yml"><img src="https://github.com/openads-project/openads-assets/actions/workflows/docker-build.yml/badge.svg"/></a>
 </p>
 
-This repository provides shared data assets for
+This repository provides shared data assets like 3D models for
 [***OpenADS***](https://openads-project.github.io/), the *Open Automated Driving
 Systems* project.
 
@@ -35,5 +35,17 @@ docker build \
   .
 ```
 
-The image stores the data at `/mesh` and `/urdf`. Additional top-level data
-directories are copied to matching paths in the image.
+The assets can be mounted directly from the image using Docker Compose:
+
+```yaml
+services:
+  monitoring:
+    image: ghcr.io/openads-project/monitoring:v1.0.0
+    volumes:
+      - type: image
+        source: ghcr.io/openads-project/openads-assets:v1.0.0
+        target: /urdf
+        read_only: true
+        image:
+          subpath: urdf
+```
