@@ -6,7 +6,7 @@
     <visual>
       <origin xyz="-0.79 0 -0.05" rpy="0 0 0"/>
       <geometry>
-        <mesh filename="file:///mesh/shuttle.obj" />
+        <mesh filename="file:///mesh/shuttle/shuttle.obj" />
       </geometry>
     </visual>
   </link>
@@ -15,7 +15,7 @@
     <visual>
       <origin xyz="0 0 0" rpy="0 0 0" />
       <geometry>
-        <mesh filename="file:///mesh/shuttle_wheel.obj" />
+        <mesh filename="file:///mesh/shuttle/shuttle_wheel.obj" />
       </geometry>
     </visual>
   </link>
@@ -24,7 +24,7 @@
     <visual>
       <origin xyz="0 0 0" rpy="0 0 0" />
       <geometry>
-        <mesh filename="file:///mesh/shuttle_wheel.obj" />
+        <mesh filename="file:///mesh/shuttle/shuttle_wheel.obj" />
       </geometry>
     </visual>
   </link>
@@ -33,7 +33,7 @@
     <visual>
       <origin xyz="0 0 0" rpy="0 0 0" />
       <geometry>
-        <mesh filename="file:///mesh/shuttle_wheel.obj" />
+        <mesh filename="file:///mesh/shuttle/shuttle_wheel.obj" />
       </geometry>
     </visual>
   </link>
@@ -42,7 +42,7 @@
     <visual>
       <origin xyz="0 0 0" rpy="0 0 0" />
       <geometry>
-        <mesh filename="file:///mesh/shuttle_wheel.obj" />
+        <mesh filename="file:///mesh/shuttle/shuttle_wheel.obj" />
       </geometry>
     </visual>
   </link>
