@@ -7,7 +7,7 @@
     <visual>
       <origin xyz="0 0 0" rpy="0 0 0" />
       <geometry>
-        <mesh filename="file:///mesh/karl.obj" />
+        <mesh filename="file:///mesh/karl/karl.obj" />
       </geometry>
     </visual>
   </link>
@@ -60,7 +60,7 @@
     <visual>
       <origin xyz="0 0 0" rpy="0 0 0" />
       <geometry>
-        <mesh filename="file:///mesh/rack.obj" />
+        <mesh filename="file:///mesh/karl/rack.obj" />
       </geometry>
     </visual>
   </link>
