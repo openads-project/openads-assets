@@ -7,6 +7,7 @@
   Sensor calibrations there change over time. When new bag files are recorded
   with an updated karl-platform URDF, update this asset to match, so that
   simulation and bag replay use the same frames and transforms as the recordings.
+  Last synced with karl-platform on 2026-11-25.
 
   The base_footprint frame (ground projection of base_link, without roll and
   pitch) is not part of this URDF. It is published by the ego state estimation
@@ -39,7 +40,7 @@
   <joint name="drivers/smartmicro_radar/front_left" type="fixed">
     <parent link="base_link" />
     <child link="drivers/smartmicro_radar/front_left" />
-    <origin xyz="3.54 0.86 0.41" rpy="0.0 0.0 1.57079632679" />
+    <origin xyz="3.54 0.86 0.41" rpy="0.02812724703084657 0.025740076302237642 1.5834881957956424" />
   </joint>
 
   <!-- smartmicro_radar/front_right -->
@@ -47,7 +48,7 @@
   <joint name="drivers/smartmicro_radar/front_right" type="fixed">
     <parent link="base_link" />
     <child link="drivers/smartmicro_radar/front_right" />
-    <origin xyz="3.54 -0.86 0.41" rpy="0.0 0.0 -1.57079632679" />
+    <origin xyz="3.54 -0.86 0.41" rpy="-0.0281272470310986 -0.025740076301962223 -1.5581044577843584" />
   </joint>
 
   <!-- smartmicro_radar/rear_left -->
@@ -55,7 +56,7 @@
   <joint name="drivers/smartmicro_radar/rear_left" type="fixed">
     <parent link="base_link" />
     <child link="drivers/smartmicro_radar/rear_left" />
-    <origin xyz="-1 0.83 0.54" rpy="0.0 0.0 2.5" />
+    <origin xyz="-1.0247773749193776 0.906941604969068 0.93413892825" rpy="0.037994168279677845 -0.006972935763300544 2.5819178987472088" />
   </joint>
 
   <!-- smartmicro_radar/rear_right -->
@@ -63,7 +64,7 @@
   <joint name="drivers/smartmicro_radar/rear_right" type="fixed">
     <parent link="base_link" />
     <child link="drivers/smartmicro_radar/rear_right" />
-    <origin xyz="-1 -0.83 0.54" rpy="0.0 0.0 -2.5" />
+    <origin xyz="-0.8673819186404179 -0.8752521474996037 1.07825536017" rpy="0.00414605394886724 -0.03776700239450548 -2.5575583452731842" />
   </joint>
 
   <!-- altos_radar -->
@@ -71,7 +72,7 @@
   <joint name="drivers/altos_radar/center" type="fixed">
     <parent link="base_link" />
     <child link="altos_radar" />
-    <origin xyz="3.8 -0.3 -0.07" rpy="0.0 0.0 0.0" />
+    <origin xyz="3.9384885445959754 -0.26471563689009103 0.16646635941" rpy="0.007555071332938296 0.02694165889091016 0.0031244566285781082" />
   </joint>
 
   <!-- RACK ================================================================ -->
@@ -87,7 +88,7 @@
   <joint name="base_link_2_rack" type="fixed">
     <parent link="base_link" />
     <child link="rack" />
-    <origin xyz="-0.636 -0.695 1.590" rpy="0.0 0.0 0.0" />
+    <origin xyz="-0.636 -0.695 1.590" rpy="-0.025750257186693076 0.028117927213501016 0.011967760624783476" />
   </joint>
 
   <!-- LIDARS ============================================================== -->
@@ -99,13 +100,13 @@
   <joint name="rack_2_drivers/aeva_lidar/front_left_screw_bottom" type="fixed">
     <parent link="rack" />
     <child link="drivers/aeva_lidar/front_left_screw_bottom" />
-    <origin xyz="2.878100857030257 0.8124954225048489 0.0243293610899449" rpy="-0.0014099288482456636 -0.012522111726213463 0.01780617303842479" />
+    <origin xyz="2.9152655658441593 0.6354418638255341 0.2285386481567877" rpy="0.023679138459782593 -0.02331588425531329 0.006883128047870786" />
   </joint>
   <joint name="drivers/aeva_lidar/front_left_screw_bottom_2_aeva/aeries2/sensor" type="fixed">
     <parent link="drivers/aeva_lidar/front_left_screw_bottom" />
     <child link="aeva/aeries2/sensor" />
     <!-- <origin xyz="-0.04010 -0.08445 0.06135" rpy="0.0 0.0 0.0" /> from aeva -->
-    <origin xyz="-0.04010 -0.08445 0.06135" rpy="0.0 0.0 -0.06" /> <!-- manual calibration to other lidars -->
+    <origin xyz="-0.04010 -0.08445 0.06135" rpy="0.0 0.0 -0.03" /> <!-- manual calibration to other lidars -->
   </joint>
   <joint name="drivers/aeva_lidar/front_left_screw_bottom_2_aeva_vehicle" type="fixed">
     <parent link="drivers/aeva_lidar/front_left_screw_bottom" />
@@ -119,7 +120,7 @@
   <joint name="drivers/ouster_lidar/ouster_lidar_fl/sensor" type="fixed">
     <parent link="rack" />
     <child link="drivers/ouster_lidar_fl/sensor" />
-    <origin xyz="2.868657363720639 1.4092181596270053 0.09646722214988167" rpy="0.0003318218631630105 0.3402987413067075 0.7947503206948755" />
+    <origin xyz="2.9134303399949544 1.2491920806439114 0.18748632540872734" rpy="0.007660475974114942 0.32058125218440064 0.7887678541023947" />
   </joint>
   <joint name="drivers/ouster_lidar_fl/sensor_2_drivers/ouster_lidar_fl/lidar" type="fixed">
     <parent link="drivers/ouster_lidar_fl/sensor" />
@@ -133,7 +134,7 @@
   <joint name="drivers/ouster_lidar/ouster_lidar_fr/sensor" type="fixed">
     <parent link="rack" />
     <child link="drivers/ouster_lidar_fr/sensor" />
-    <origin xyz="2.89 0.04 0.10"  rpy="0.0 0.349066 -0.785398"/>
+    <origin xyz="2.9220711461395785 -0.14191199819939648 0.15285783701673905" rpy="0.026921706921566594 0.3527433819822571 -0.7780370481273557" />
   </joint>
   <joint name="drivers/ouster_lidar_fr/sensor_2_drivers/ouster_lidar_fr/lidar" type="fixed">
     <parent link="drivers/ouster_lidar_fr/sensor" />
@@ -147,7 +148,7 @@
   <joint name="drivers/ouster_lidar/ouster_lidar_rl/sensor" type="fixed">
     <parent link="rack" />
     <child link="drivers/ouster_lidar_rl/sensor" />
-    <origin xyz="0.04 1.444 0.10" rpy="0.0 0.349066 2.35619"/>
+    <origin xyz="0.036561930418244404 1.2391193185646345 0.13044972349871808" rpy="-0.04436134119340981 0.35061096658307084 2.337885405122306" />
   </joint>
   <joint name="drivers/ouster_lidar_rl/sensor_2_drivers/ouster_lidar_rl/lidar" type="fixed">
     <parent link="drivers/ouster_lidar_rl/sensor" />
@@ -161,7 +162,7 @@
   <joint name="drivers/ouster_lidar/ouster_lidar_rr/sensor" type="fixed">
     <parent link="rack" />
     <child link="drivers/ouster_lidar_rr/sensor" />
-    <origin xyz="0.04 0.04 0.10" rpy="0.0 0.349066 -2.35619"/>
+    <origin xyz="0.04 -0.1495 0.10" rpy="0.0 0.3759048005725428 -2.35619" />
   </joint>
   <joint name="drivers/ouster_lidar_rr/sensor_2_drivers/ouster_lidar_rr/lidar" type="fixed">
     <parent link="drivers/ouster_lidar_rr/sensor" />
@@ -172,75 +173,129 @@
   <!-- CAMERAS ============================================================= -->
 
   <!-- zed_camera/front_left -->
-  <link name="front_left_camera_link"/>
-  <joint name="drivers/ouster_lidar_fl/lidar_2_front_left_camera_link_calibrated" type="fixed">
+  <link name="front_left_left_camera_optical_frame"/>
+  <joint name="joint_drivers_ouster_lidar_fl_lidar_to_front_left_left_camera_optical_frame" type="fixed">
     <parent link="drivers/ouster_lidar_fl/lidar" />
-    <child link="front_left_camera_link" />
-    <origin xyz="-0.011343 -0.007279 -0.159530" rpy="-0.002999 -0.245490 -3.138792" />
+    <child link="front_left_left_camera_optical_frame" />
+    <origin xyz="-0.026148 -0.047664 -0.165388" rpy="-1.306579 0.001660 1.573094" />
+  </joint>
+  <link name="front_left_right_camera_optical_frame"/>
+  <joint name="front_left_left_to_right_camera_optical_frame" type="fixed">
+    <parent link="front_left_left_camera_optical_frame" />
+    <child link="front_left_right_camera_optical_frame" />
+    <origin xyz="0.120048 0 0" rpy="0 0 0" /> <!-- from StereoLabs calibration file front-left.conf -->
   </joint>
 
   <!-- zed_camera/front_center -->
-  <link name="front_center_camera_link"/>
-  <joint name="drivers/ouster_lidar_fl/lidar_2_front_center_camera_link_calibrated" type="fixed">
-    <parent link="drivers/ouster_lidar_fl/lidar" />
-    <child link="front_center_camera_link" />
-    <origin xyz="0.384475 0.559731 -0.295977" rpy="0.247557 -0.152446 2.355196" />
+  <link name="front_center_left_camera_optical_frame"/>
+  <joint name="joint_aeva_aeries2_sensor_to_front_center_left_camera_optical_frame" type="fixed">
+    <parent link="aeva/aeries2/sensor" />
+    <child link="front_center_left_camera_optical_frame" />
+    <origin xyz="0.114443 -0.013468 -0.229590" rpy="-1.673648 0.003176 -1.543337" />
+  </joint>
+  <link name="front_center_right_camera_optical_frame"/>
+  <joint name="front_center_left_to_right_camera_optical_frame" type="fixed">
+    <parent link="front_center_left_camera_optical_frame" />
+    <child link="front_center_right_camera_optical_frame" />
+    <origin xyz="0.120068 0 0" rpy="0 0 0" /> <!-- from StereoLabs calibration file front-center.conf -->
   </joint>
 
   <!-- zed_camera/front_right -->
-  <link name="front_right_camera_link"/>
-  <joint name="drivers/ouster_lidar_fr/lidar_2_front_right_camera_link_calibrated" type="fixed">
+  <link name="front_right_left_camera_optical_frame"/>
+  <joint name="front_right_right_to_left_camera_optical_frame" type="fixed">
+    <parent link="front_right_right_camera_optical_frame" />
+    <child link="front_right_left_camera_optical_frame" />
+    <origin xyz="-0.120014 0 0" rpy="0 0 0" /> <!-- from StereoLabs calibration file front-right.conf -->
+  </joint>
+  <link name="front_right_right_camera_optical_frame"/>
+  <joint name="joint_drivers_ouster_lidar_fr_lidar_to_front_right_right_camera_optical_frame" type="fixed">
     <parent link="drivers/ouster_lidar_fr/lidar" />
-    <child link="front_right_camera_link" />
-    <origin xyz="-0.042832 -0.013720 -0.139901" rpy="-0.004876 -0.255442 -3.117570" />
+    <child link="front_right_right_camera_optical_frame" />
+    <origin xyz="0.030412 0.053351 -0.105009" rpy="-1.321942 -0.000088 1.577377" />
   </joint>
 
   <!-- zed_camera/mid_left -->
-  <link name="mid_left_camera_link"/>
-  <joint name="drivers/ouster_lidar_fl/lidar_2_mid_left_camera_link_calibrated" type="fixed">
+  <link name="mid_left_left_camera_optical_frame"/>
+  <joint name="joint_drivers_ouster_lidar_fl_lidar_to_mid_left_left_camera_optical_frame" type="fixed">
     <parent link="drivers/ouster_lidar_fl/lidar" />
-    <child link="mid_left_camera_link" />
-    <origin xyz="0.784896 -0.905747 -0.485045" rpy="-0.230374 0.095476 -2.400724" />
+    <child link="mid_left_left_camera_optical_frame" />
+    <origin xyz="0.912302 -0.980686 -0.381164" rpy="-1.680665 -0.247050 2.329115" />
   </joint>
-
-  <!-- zed_camera/mid_right -->
-  <link name="mid_right_camera_link"/>
-  <joint name="drivers/ouster_lidar_fr/lidar_2_mid_right_camera_link_calibrated" type="fixed">
-    <parent link="drivers/ouster_lidar_fr/lidar" />
-    <child link="mid_right_camera_link" />
-    <origin xyz="0.772863 0.923757 -0.443542" rpy="0.248168 0.107991 2.426933" />
-  </joint>
-
-  <!-- zed_camera/rear_left -->
-  <link name="rear_left_camera_link"/>
-  <joint name="drivers/ouster_lidar_rl/lidar_2_rear_left_camera_link_calibrated" type="fixed">
-    <parent link="drivers/ouster_lidar_rl/lidar" />
-    <child link="rear_left_camera_link" />
-    <origin xyz="0.035913 0.005862 -0.168665" rpy="0.000909 0.006798 -3.135595" />
-  </joint>
-
-  <!-- zed_camera/rear_center -->
-  <link name="rear_center_camera_link"/>
-  <joint name="drivers/ouster_lidar_rr/lidar_2_rear_center_camera_link_calibrated" type="fixed">
-    <parent link="drivers/ouster_lidar_rr/lidar" />
-    <child link="rear_center_camera_link" />
-    <origin xyz="0.453255 0.589114 -0.214437" rpy="0.245342 -0.239220 2.330763" />
-  </joint>
-
-  <!-- zed_camera/rear_right -->
-  <link name="rear_right_camera_link"/>
-  <joint name="drivers/ouster_lidar_rr/lidar_2_rear_right_camera_link_calibrated" type="fixed">
-    <parent link="drivers/ouster_lidar_rr/lidar" />
-    <child link="rear_right_camera_link" />
-    <origin xyz="0.005634 -0.002011 -0.178748" rpy="0.007547 0.008888 3.113021" />
+  <link name="mid_left_right_camera_optical_frame"/>
+  <joint name="mid_left_left_to_right_camera_optical_frame" type="fixed">
+    <parent link="mid_left_left_camera_optical_frame" />
+    <child link="mid_left_right_camera_optical_frame" />
+    <origin xyz="0.120223 0 0" rpy="0 0 0" /> <!-- from StereoLabs calibration file mid-left.conf -->
   </joint>
 
   <!-- zed_camera/mid_center -->
-  <link name="mid_center_camera_link"/>
-  <joint name="drivers/ouster_lidar_fl/lidar_2_mid_center_camera_link_calibrated" type="fixed">
-    <parent link="drivers/ouster_lidar_fl/lidar" />
-    <child link="mid_center_camera_link" />
-    <origin xyz="0.7036741954158618 0.0762292977368622 -0.34950870775157294" rpy="0.3324833533890233 -0.742867883777794 2.1615008090214745" />
+  <link name="mid_center_left_camera_optical_frame"/>
+  <joint name="joint_drivers_ouster_lidar_fr_lidar_to_mid_center_left_camera_optical_frame" type="fixed">
+    <parent link="drivers/ouster_lidar_fr/lidar" />
+    <child link="mid_center_left_camera_optical_frame" />
+    <origin xyz="0.841879473218738 -0.20883561124079453 -0.39611181508587195" rpy="-0.783122 -0.240062 2.334478" />
+  </joint>
+  <link name="mid_center_right_camera_optical_frame"/>
+  <joint name="mid_center_left_to_right_camera_optical_frame" type="fixed">
+    <parent link="mid_center_left_camera_optical_frame" />
+    <child link="mid_center_right_camera_optical_frame" />
+    <origin xyz="0.120098 0 0" rpy="0 0 0" /> <!-- from StereoLabs calibration file mid-center.conf -->
+  </joint>
+
+  <!-- zed_camera/mid_right -->
+  <link name="mid_right_left_camera_optical_frame"/>
+  <joint name="mid_right_right_to_left_camera_optical_frame" type="fixed">
+    <parent link="mid_right_right_camera_optical_frame" />
+    <child link="mid_right_left_camera_optical_frame" />
+    <origin xyz="-0.120143 0 0" rpy="0 0 0" /> <!-- from StereoLabs calibration file mid-right.conf -->
+  </joint>
+  <link name="mid_right_right_camera_optical_frame"/>
+  <joint name="joint_drivers_ouster_lidar_fr_lidar_to_mid_right_right_camera_optical_frame" type="fixed">
+    <parent link="drivers/ouster_lidar_fr/lidar" />
+    <child link="mid_right_right_camera_optical_frame" />
+    <origin xyz="0.853479 0.949437 -0.424602" rpy="-1.671673 0.246823 0.820154" />
+  </joint>
+
+  <!-- zed_camera/rear_left -->
+  <link name="rear_left_left_camera_optical_frame"/>
+  <joint name="rear_left_right_to_left_camera_optical_frame" type="fixed">
+    <parent link="rear_left_right_camera_optical_frame" />
+    <child link="rear_left_left_camera_optical_frame" />
+    <origin xyz="-0.120045 0 0" rpy="0 0 0" /> <!-- from StereoLabs calibration file rear-left.conf -->
+  </joint>
+  <link name="rear_left_right_camera_optical_frame"/>
+  <joint name="joint_drivers_ouster_lidar_rl_lidar_to_rear_left_right_camera_optical_frame" type="fixed">
+    <parent link="drivers/ouster_lidar_rl/lidar" />
+    <child link="rear_left_right_camera_optical_frame" />
+    <origin xyz="0.029473 0.072925 -0.138551" rpy="-1.576319 0.002965 1.590596" />
+  </joint>
+
+  <!-- zed_camera/rear_center -->
+  <link name="rear_center_left_camera_optical_frame"/>
+  <joint name="joint_drivers_ouster_lidar_rr_lidar_to_rear_center_left_camera_optical_frame" type="fixed">
+    <parent link="drivers/ouster_lidar_rr/lidar" />
+    <child link="rear_center_left_camera_optical_frame" />
+    <origin xyz="0.397390 0.507360 -0.110427" rpy="-1.325054 0.236838 0.823929" />
+  </joint>
+  <link name="rear_center_right_camera_optical_frame"/>
+  <joint name="rear_center_left_to_right_camera_optical_frame" type="fixed">
+    <parent link="rear_center_left_camera_optical_frame" />
+    <child link="rear_center_right_camera_optical_frame" />
+    <origin xyz="0.120084 0 0" rpy="0 0 0" /> <!-- from StereoLabs calibration file rear-center.conf -->
+  </joint>
+
+  <!-- zed_camera/rear_right -->
+  <link name="rear_right_left_camera_optical_frame"/>
+  <joint name="joint_drivers_ouster_lidar_rr_lidar_to_rear_right_left_camera_optical_frame" type="fixed">
+    <parent link="drivers/ouster_lidar_rr/lidar" />
+    <child link="rear_right_left_camera_optical_frame" />
+    <origin xyz="0.021656 -0.058758 -0.135281" rpy="-1.583717 -0.001725 1.570610" />
+  </joint>
+  <link name="rear_right_right_camera_optical_frame"/>
+  <joint name="rear_right_left_to_right_camera_optical_frame" type="fixed">
+    <parent link="rear_right_left_camera_optical_frame" />
+    <child link="rear_right_right_camera_optical_frame" />
+    <origin xyz="0.120066 0 0" rpy="0 0 0" /> <!-- from StereoLabs calibration file rear-right.conf -->
   </joint>
 
 </robot>
