@@ -1,16 +1,36 @@
 <?xml version="1.0"?>
+<!--
+  Vehicle description of karl.
+
+  The source of truth for this file is the robot_state_publisher URDF in the
+  karl-platform repository (essentials/robot_state_publisher/karl.urdf).
+  Sensor calibrations there change over time. When new bag files are recorded
+  with an updated karl-platform URDF, update this asset to match, so that
+  simulation and bag replay use the same frames and transforms as the recordings.
+
+  The base_footprint frame (ground projection of base_link, without roll and
+  pitch) is not part of this URDF. It is published by the ego state estimation
+  as a child of base_link.
+-->
 <robot name="karl">
 
-  <!-- BASE LINK =========================================================== -->
+  <!-- VEHICLE FRAMES ====================================================== -->
 
-  <link name="base_link"> <!-- middle (y) of rear axle (x) on the ground (z) -->
+  <link name="base_link"> <!-- middle (y) of rear axle (x,z) -->
     <visual>
-      <origin xyz="0 0 0" rpy="0 0 0" />
+      <origin xyz="0 0 -0.32" rpy="0 0 0" />
       <geometry>
         <mesh filename="file:///mesh/karl/karl.obj" />
       </geometry>
     </visual>
   </link>
+
+  <link name="geometric_center"/>
+  <joint name="base_link_2_geometric_center" type="fixed">
+    <parent link="base_link" />
+    <child link="geometric_center" />
+    <origin xyz="1.4895 0 0.635" rpy="0 0 0" />
+  </joint>
 
   <!-- RADARS ============================================================== -->
 
@@ -19,7 +39,7 @@
   <joint name="drivers/smartmicro_radar/front_left" type="fixed">
     <parent link="base_link" />
     <child link="drivers/smartmicro_radar/front_left" />
-    <origin xyz="3.54 0.86 0.73" rpy="0.0 0.0 1.57079632679" />
+    <origin xyz="3.54 0.86 0.41" rpy="0.0 0.0 1.57079632679" />
   </joint>
 
   <!-- smartmicro_radar/front_right -->
@@ -27,7 +47,7 @@
   <joint name="drivers/smartmicro_radar/front_right" type="fixed">
     <parent link="base_link" />
     <child link="drivers/smartmicro_radar/front_right" />
-    <origin xyz="3.54 -0.86 0.73" rpy="0.0 0.0 -1.57079632679" />
+    <origin xyz="3.54 -0.86 0.41" rpy="0.0 0.0 -1.57079632679" />
   </joint>
 
   <!-- smartmicro_radar/rear_left -->
@@ -35,15 +55,15 @@
   <joint name="drivers/smartmicro_radar/rear_left" type="fixed">
     <parent link="base_link" />
     <child link="drivers/smartmicro_radar/rear_left" />
-    <origin xyz="-1 0.83 0.86" rpy="0.0 0.0 2.5" />
+    <origin xyz="-1 0.83 0.54" rpy="0.0 0.0 2.5" />
   </joint>
 
-  <!-- smartmicro_radar/rear_left -->
+  <!-- smartmicro_radar/rear_right -->
   <link name="drivers/smartmicro_radar/rear_right"/>
   <joint name="drivers/smartmicro_radar/rear_right" type="fixed">
     <parent link="base_link" />
     <child link="drivers/smartmicro_radar/rear_right" />
-    <origin xyz="-1 -0.83 0.86" rpy="0.0 0.0 -2.5" />
+    <origin xyz="-1 -0.83 0.54" rpy="0.0 0.0 -2.5" />
   </joint>
 
   <!-- altos_radar -->
@@ -51,7 +71,7 @@
   <joint name="drivers/altos_radar/center" type="fixed">
     <parent link="base_link" />
     <child link="altos_radar" />
-    <origin xyz="3.8 -0.3 0.25" rpy="0.0 0.0 0.0" />
+    <origin xyz="3.8 -0.3 -0.07" rpy="0.0 0.0 0.0" />
   </joint>
 
   <!-- RACK ================================================================ -->
@@ -67,7 +87,7 @@
   <joint name="base_link_2_rack" type="fixed">
     <parent link="base_link" />
     <child link="rack" />
-    <origin xyz="-0.636 -0.695 1.910" rpy="0.0 0.0 0.0" />
+    <origin xyz="-0.636 -0.695 1.590" rpy="0.0 0.0 0.0" />
   </joint>
 
   <!-- LIDARS ============================================================== -->
